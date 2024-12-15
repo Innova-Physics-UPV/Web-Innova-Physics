@@ -1,20 +1,49 @@
+/* globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f3f4f6;
+  --foreground: #09090b;
+  --font:Arial;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: linear-gradient(to bottom,theme('colors.neutral-dark.600'),theme('colors.neutral-dark.900'));
-    --foreground: #ededed;
+    --background:  #18181b;
+    --foreground: #d4d4d8;
   }
 }
-body {
+
+h2 {
+  color: var(--foreground); 
+  font-size: 2.25rem; 
+  font-weight: 700; 
+  margin-bottom: 2rem; 
+  
+}
+h3{
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
+  font-weight: 600;
+  margin: 6;
+}
+p{
+  color: var(--foreground);
+  font-size:1.5rem;
+  line-height: 2rem;
+  font-weight: 350;
+}
+button:not(.gallery-container button){ 
+  color: var(--background);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.text-bigger{
+  color: var(--foreground);
+  size:20px;
+  font: var(--font);
 }

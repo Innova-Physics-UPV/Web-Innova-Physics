@@ -97,10 +97,11 @@ export default {
           500: '#FFFFFF',
           900: '#000000',
         },
-
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: 'var(--background)',
+        foreground:'var(--foreground)',
       },
+      filter: {
+        'custom-drop':'drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6))', },
     },
   },
   plugins: [],
