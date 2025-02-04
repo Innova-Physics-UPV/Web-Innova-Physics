@@ -16,7 +16,7 @@ export default function Document() {
         rel="stylesheet"
       />
       {/* Favicon */}
-      
+      <link rel="icon" href="/logos/isotipo_COLOR.svg" />
     </Head>
     <body className="font-sans text-gray-800">
       <Main />
