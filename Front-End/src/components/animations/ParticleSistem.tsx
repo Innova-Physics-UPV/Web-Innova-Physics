@@ -80,8 +80,10 @@ export class ParticleSystem {
         return trailParticle;
     }
 
-    createParticle(origin?: THREE.Vector3, color?: THREE.Color): Particle|null {
-        if (this.particles.length >= this.maxParticles) return null;
+    createParticle(origin?: THREE.Vector3, color?: THREE.Color,urgent?:boolean): Particle|null {
+        urgent = urgent ?? false;
+
+        if (this.particles.length >= this.maxParticles && (!urgent ||  this.particles.length >= 2*this.maxParticles )) return null;
 
         const boundarySize = 15;
         const spawnOrigin = origin || new THREE.Vector3(
@@ -89,6 +91,7 @@ export class ParticleSystem {
             (Math.random() - 0.5) * boundarySize,
             (Math.random() - 0.5) * 5
         );
+        
 
         const particleColor = color || new THREE.Color(Math.random(), Math.random(), Math.random());
         this.createFlash(spawnOrigin, particleColor);
@@ -102,6 +105,9 @@ export class ParticleSystem {
 
         const mesh = new THREE.Mesh(geometry, material);
         mesh.position.copy(spawnOrigin);
+        var lifetime= 4 + Math.random() * 15;
+        if(urgent){
+            lifetime = 0.5 + Math.random() * 10; }
 
         const particle: Particle = {
             mesh,
@@ -110,18 +116,18 @@ export class ParticleSystem {
                 (Math.random() - 0.5) * 0.35,
                 (Math.random() - 0.5) * 0.35
             ),
-            lifetime: 4 + Math.random() * 15,
+            lifetime: lifetime,
             position: spawnOrigin.clone(),
             color: particleColor,
             size: 0.05,
-            trail: [] // Inicializar array de rastro vacío
+            trail: [] 
         };
 
         this.scene.add(mesh);
         this.particles.push(particle);
+        //console.log("Particle created",this.particles.length);
         return particle;
     }
-
     update(deltaTime: number) {
         this.lived += deltaTime;
 
@@ -218,6 +224,26 @@ export class ParticleSystem {
     spawnInitialParticles(count: number, v: THREE.Vector3) {
         for (let i = 0; i < count; i++) {
             this.createParticle(v);
+        }
+    }
+
+    boost() {
+        const screenWidth = 10; // Define the horizontal range for particle distribution
+        const screenHeight = 5; // Define the vertical range for particle distribution
+        const zPosition = -5;   // Closer to the screen
+
+        for (let i = 0; i < 50; i++) {
+            // Randomize the starting position within the defined screen area
+            const bottomPosition = new THREE.Vector3(
+                (Math.random() - 0.5) * screenWidth, // Random X position
+                (Math.random() - 0.5) * screenHeight, // Random Y position
+                zPosition // Fixed Z position closer to the screen
+            );
+
+            const upwardVelocity = new THREE.Vector3(0, 1, 0); // Velocity towards the top of the screen
+
+            const particle = this.createParticle(bottomPosition, undefined, true);
+            particle!.velocity.copy(upwardVelocity);
         }
     }
 }

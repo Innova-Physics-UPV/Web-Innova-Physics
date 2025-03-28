@@ -4,25 +4,26 @@
 @tailwind utilities;
 
 :root {
-  --background: #f3f4f6;
-  --foreground: #09090b;
-  --font: Arial;
+  --background: oklch(0.931 0 0.89876 / 0.95);
+  --foreground: oklch(0.205 0 0);
+  --font: 'Sansation', Arial, sans-serif; /* Cambiar la tipografía predeterminada */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: rgba(24, 24, 27, 0.95); 
-    --foreground: #d4d4d8;
+    --background: oklch(0.205 0 0 / 0.99); 
+    --foreground: oklch(0.931 0 0.89876);
   }
 }
 
-html, 
-body{
+html,
+body {
+  font-family: var(--font); /* Asegurarse de que la fuente se aplique globalmente */
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  position: relative;
 }
 
 #__next {
@@ -35,16 +36,25 @@ body{
   box-sizing: border-box;
 }
 
+h1 {
+  color: var(--foreground);
+  font-size: 3.125rem; /* 50px */
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 5rem; /* 20 */
+}
+
 h2 {
   color: var(--foreground); 
-  font-size: 2.25rem; 
+  font-size: 1.5625rem; /* 50px */
   font-weight: 700; 
   margin-bottom: 2rem; 
 }
 
 h3 {
   color: var(--foreground);
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.25rem; /* 25px */
   line-height: 1.75rem; /* 28px */
   font-weight: 600;
   margin: 6;
@@ -52,18 +62,32 @@ h3 {
 
 p {
   color: var(--foreground);
-  font-size: 1.5rem;
+  font-family: 'Calibri', sans-serif; /* Cambiar la tipografía a Calibri */
+  font-size: 1.25rem; /* 20px */
   line-height: 2rem;
   font-weight: 400;
   padding: 20;
 }
 
-button:not(.gallery-container button) { 
+button:not(.gallery-container button):not(.text-button button) { 
   color: var(--background);
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
+}
+
+.text-button button{
+  color: var(--foreground);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.text-button button:hover {
+  background-color: #444; /* Fondo más claro al hacer hover */
+  transform: scale(1.05); /* Agrandar el botón al hacer hover */
 }
 
 .bg-background {

@@ -16,9 +16,16 @@ export class NeonCurvesGenerator {
 
     constructor(colors?: THREE.Color[]) {
         this.colors = colors || [
+            
             new THREE.Color(0x005FFF), // Electric Blue
             new THREE.Color(0x800080), // Purple
             new THREE.Color(0xFF4040)  // Vibrant Red
+
+
+//Colores de marca, se aumenta un 20% saturación y 10% luminosidad
+            //new THREE.Color(0x512548), 
+            //new THREE.Color(0x2B3177), 
+            //new THREE.Color(0x761818) 
         ];
     }
 

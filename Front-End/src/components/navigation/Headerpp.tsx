@@ -45,7 +45,7 @@ const Header = () => {
     <header className={`
       fixed top-0 left-0 w-full z-50
       transition-colors duration-300 ease-in-out
-      ${!isVisible ? 'bg-black/80 backdrop-blur-sm' : 'bg-transparent'}
+      ${!isVisible ? 'bg-black backdrop-blur-sm' : 'bg-transparent'}
     `}>
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">

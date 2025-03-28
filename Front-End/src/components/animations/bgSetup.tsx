@@ -9,6 +9,8 @@ import { ParticleSystem } from '@/components/animations/ParticleSistem';
 const NeonDrawingEffect = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
+  const particleSystemRef = useRef<ParticleSystem | null>(null);
+
   useEffect(() => {
     if (!containerRef.current) return;
 
@@ -16,7 +18,7 @@ const NeonDrawingEffect = () => {
     
     // Scene setup
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color('#0c0a09');
+    scene.background = new THREE.Color('#111207'); // Change the background color here
 
     // Camera setup
     const camera = new THREE.PerspectiveCamera(
@@ -49,6 +51,7 @@ const NeonDrawingEffect = () => {
     // Particles setup
     const particleSystem = new ParticleSystem(scene, 25);
     particleSystem.spawnInitialParticles(25, new THREE.Vector3(0, 0, 0));
+    particleSystemRef.current = particleSystem;
 
     // Post-processing setup
     const composer = new EffectComposer(renderer);
@@ -113,6 +116,19 @@ const NeonDrawingEffect = () => {
       if (container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
       }
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleAceleron = () => {
+      particleSystemRef.current?.boost();
+      console.log("Acelerón triggered!");
+    };
+
+    window.addEventListener("aceleron", handleAceleron);
+
+    return () => {
+      window.removeEventListener("aceleron", handleAceleron);
     };
   }, []);
 
