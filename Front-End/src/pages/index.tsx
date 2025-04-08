@@ -10,9 +10,6 @@ export default function Home() {
 
   const ref = useRef(null);
     const { scrollYProgress } = useScroll({ container: ref });
-    scrollYProgress.on("change", (value) => console.log(value));
-
-  console.log("Home component mounted");
   return (
     <>
       <Head>

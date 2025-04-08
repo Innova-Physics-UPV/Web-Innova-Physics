@@ -33,16 +33,16 @@ export default function DepartmentCircles({ scrollToSection }: { scrollToSection
       : department.image;
     
     return (
-      <div key={department.name} className="relative flex flex-col items-center">
+      <div 
+key={department.name} 
+className="relative flex flex-col items-center pt-10"
+        onMouseEnter={() => handleToggle(department.name)}
+        onMouseLeave={() => handleToggle("")}
+>
         <div className="relative flex justify-center">
           {/* Botón principal del departamento */}
-          <button
-            onClick={() => handleToggle(department.name)}
-            onMouseEnter={() => setHoveredDept(department.name)}
-            onMouseLeave={() => setHoveredDept(null)}
-            className={`w-[12vw] h-[12vw] bg-foreground rounded-full shadow-lg flex flex-col items-center justify-center z-20 transition-all duration-300 ${isOpen ? 'scale-110' : ''}`}
-          >
-            <div className="mb-3">
+          <button className={`w-[12vw] h-[12vw] bg-foreground rounded-full shadow-lg flex flex-col items-center justify-center z-20 transition-all duration-300 ${isOpen ? 'scale-110' : ''}`}>
+            <div>
               <img
                 src={departmentImageSrc}
                 alt={department.name}
@@ -52,13 +52,13 @@ export default function DepartmentCircles({ scrollToSection }: { scrollToSection
           </button>
           
           {/* Menú circular de subdepartamentos */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="absolute inset-0 flex items-center justify-center">
             {department.subDepartments.map((subDept, index) => {
               const totalItems = department.subDepartments.length;
-              const angle = (index * (2 * Math.PI / totalItems)) + (department.name === "Tech" ? Math.PI / 4 : 0);
-              const radius = '14vw';
-              const x = isOpen ? `calc(${Math.cos(angle)} * ${radius})` : "0";
-              const y = isOpen ? `calc(${Math.sin(angle)} * ${radius})` : "0";
+              const angle = (index * (2 * Math.PI / totalItems)) + (department.name === "Tech" ? Math.PI / 4 : 0) + (department.name === "Marketing" ? Math.PI /6: 0);
+              const radius = '12vw';
+              const x = isOpen ? `calc(${Math.cos(angle) * parseFloat(radius)}vw)` : "0";
+              const y = isOpen ? `calc(${Math.sin(angle) * parseFloat(radius)+1}vw)` : "0";
               const isSubDeptHovered = hoveredSubDeptIndex === index;
               
               // Determinamos qué imagen usar para el subdepartamento
@@ -78,39 +78,31 @@ export default function DepartmentCircles({ scrollToSection }: { scrollToSection
                   }}
                 >
                   {/* Botón de subdepartamento */}
-                  <button
-  onClick={() => handleToggle(department.name)}
-  //onMouseEnter={() => setHoveredDept(department.name)}
-  //onMouseLeave={() => setHoveredDept(null)}
-  className={`w-[12vw] h-[12vw] bg-foreground rounded-full shadow-lg flex flex-col items-center justify-center z-20 transition-all duration-300 overflow-hidden relative ${isOpen ? 'scale-110' : ''}`}
->
-  {/* Gradiente al hacer hover */}
-  <div
-    className={`absolute inset-0 bg-gradient-to-t from-blue-500 to-transparent transition-opacity duration-300 ${isHovered ? 'opacity-60' : 'opacity-0'}`}
-  ></div>
-
-  <div className="mb-3 relative z-10">
-    <img
-      src={departmentImageSrc}
-      alt={department.name}
-      className="w-[clamp(24px,10vw,120px)] h-[clamp(24px,10vw,120px)] object-contain"
-    />
-  </div>
-</button>
-
-                  <p className="text-foreground text-xs mt-2">{subDept.name}</p>
+                  <button className={`w-[6vw] h-[6vw] bg-foreground rounded-full shadow-lg flex flex-col items-center justify-center z-20 transition-all duration-300 overflow-hidden relative ${isOpen ? 'scale-110' : ''}`}
+                  onClick={() => {
+                    scrollToSection(subDept.name);
+                    console.log(subDept.name);
+                  }}          >
+                  {/* Gradiente al hacer hover */}
+                  <img
+                        src={departmentImageSrc}
+                        alt={department.name}
+                        className="w-[clamp(24px,10vw,120px)] h-[clamp(24px,10vw,120px)] object-contain"
+                      />
+                  </button>
+                  <p className="text-foreground text-xs">{subDept.name}</p>
                 </div>
               );
             })}
           </div>
         </div>
-        <p className="font-semibold mt-2">{department.name}</p>
+        <p className="font-semibold">{department.name}</p>
       </div>
     );
   };
   
   return (
-    <div className="grid grid-cols-3 gap-12 w-full max-w-screen-xl mx-auto py-15">
+    <div className="grid grid-cols-3 gap-12 w-full max-w-screen-xl mx-auto">
       {departments.map((department) => renderDepartmentCircle(department))}
     </div>
   );

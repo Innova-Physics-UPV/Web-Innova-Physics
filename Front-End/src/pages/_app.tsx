@@ -12,19 +12,28 @@ const NeonDrawingEffect = dynamic(
 );
 function App({ Component, pageProps }: AppProps) {
   const [isClient, setIsClient] = useState(false);
+  const [activePage, setActivePage] = useState('');
   const router = useRouter();
+  const hideFooter = router.pathname === "/particulas";
+
+  useEffect(() => {
+    setActivePage(router.pathname);
+  }, [router.pathname]);
+
   return (
     <div className="relative">
       <div className="fixed top-0 left-0 z-0">
-        <NeonDrawingEffect />
+        <NeonDrawingEffect activePage={activePage} />
       </div>
       <Header />
       <main className="flex-grow relative">
         <Component {...pageProps} />
       </main>
-      <div className="relative bottom-0 left-0 z-10 pt-40">
-      <Footer/>
-      </div>
+      {!hideFooter && (
+        <div className="relative bottom-0 left-0 z-10 mt-40">
+          <Footer />
+        </div>
+      )}
     </div>
   );
 }

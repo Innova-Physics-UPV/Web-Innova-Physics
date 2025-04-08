@@ -6,16 +6,15 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { NeonCurvesGenerator, CurveObject } from '@/components/animations/curves';
 import { ParticleSystem } from '@/components/animations/ParticleSistem';
 
-const NeonDrawingEffect = () => {
+const NeonDrawingEffect = ({ activePage }: { activePage: string }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-
   const particleSystemRef = useRef<ParticleSystem | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
 
     const container = containerRef.current;
-    
+
     // Scene setup
     const scene = new THREE.Scene();
     scene.background = new THREE.Color('#111207'); // Change the background color here
@@ -104,6 +103,33 @@ const NeonDrawingEffect = () => {
 
     animate();
 
+    if (activePage === '/particulas') {
+      const mouse = new THREE.Vector2();
+      const raycaster = new THREE.Raycaster();
+
+      const onClick = (event: MouseEvent): void => {
+        // Calculate normalized coordinates
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+        // Update the raycaster
+        raycaster.setFromCamera(mouse, camera);
+
+        // Calculate a point in 3D space
+        const position = new THREE.Vector3();
+        raycaster.ray.at(5, position);
+
+        particleSystem.createParticle(position, undefined, true);
+      };
+
+      window.addEventListener('click', onClick);
+
+      // Cleanup click event listener
+      return () => {
+        window.removeEventListener('click', onClick);
+      };
+    }
+
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -117,20 +143,7 @@ const NeonDrawingEffect = () => {
         container.removeChild(renderer.domElement);
       }
     };
-  }, []);
-
-  useEffect(() => {
-    const handleAceleron = () => {
-      particleSystemRef.current?.boost();
-      console.log("Acelerón triggered!");
-    };
-
-    window.addEventListener("aceleron", handleAceleron);
-
-    return () => {
-      window.removeEventListener("aceleron", handleAceleron);
-    };
-  }, []);
+  }, [activePage]); // Add activePage to the dependency array
 
   return (
     <div 
@@ -143,7 +156,7 @@ const NeonDrawingEffect = () => {
         width: '100%',
         height: '100%',
         pointerEvents: 'none',
-        zIndex:-10,
+       zIndex:-10,
       }}
     />
   );

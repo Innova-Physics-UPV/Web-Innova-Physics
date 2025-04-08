@@ -9,6 +9,7 @@ import BaseSection from '@/components/common/BaseSection';
 //La estructura de Departamentos y los miembros del equipo se deben modificar desde data.
 //Los menus circulares deben ser modificados desde components/sections/DepartmentCircles.tsx, se recomienda revisarlos si se modifican la estructura.
 
+
 // Aplanamos la estructura para obtener todos los subdepartamentos
 const allSubDepartments = subDeptStructure.flatMap(dept => dept.subDepartments);
 
@@ -131,9 +132,9 @@ export default function Equipo() {
           </section>
 
           {/* Círculos de Departamentos */}
-          <div className="w-full flex justify-center">
+          
             <DepartmentCircles scrollToSection={scrollToSection}/>
-          </div>
+        
 
           {/* Secciones de cada subdepartamento */}
           <div className="p-10">

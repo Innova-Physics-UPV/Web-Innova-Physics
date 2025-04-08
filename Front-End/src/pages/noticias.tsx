@@ -112,9 +112,9 @@ const NewsPage: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">NOTICIAS</h1>
       
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-6 items-stretch">
         {/* Main Article Section */}
-        <div className="md:col-span-2">
+        <div className="md:col-span-2 flex flex-col space-y-6">
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md">
             <img 
               src={mainArticle.imageUrl} 
@@ -128,17 +128,19 @@ const NewsPage: React.FC = () => {
           </div>
 
           {/* Secondary Articles */}
-          <div className="grid md:grid-cols-3 gap-4 mt-6">
+          <div className="space-y-6 py-10 flex-grow">
             {secondaryArticles.map((article, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <img 
-                  src={article.imageUrl} 
-                  alt={article.title} 
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-4">
+              <div key={index} className="bg-primario-100/10 rounded-lg shadow-md overflow-hidden flex items-center">
+                <div className="bg-white rounded-lg shadow-md overflow-hidden flex-shrink-0">
+                  <img 
+                    src={article.imageUrl} 
+                    alt={article.title} 
+                    className="w-48 h-48 object-cover"
+                  />
+                </div>
+                <div className="p-4 flex-grow">
                   <h3 className="font-semibold mb-2">{article.title}</h3>
-                  <p className="text-gray-600 text-sm">{article.summary}</p>
+                  <p className="text-sm">{article.summary}</p>
                 </div>
               </div>
             ))}
@@ -146,15 +148,17 @@ const NewsPage: React.FC = () => {
         </div>
 
         {/* Cern Section */}
-        <div className="space-y-4">
+        <div className="space-y-4 flex flex-col">
           <h3 className="text-xl font-semibold text-blue-600">Cern</h3>
-          {[1, 2, 3].map((_, index) => (
-            <div key={index} className="flex items-center space-x-4">
-              <div className="flex-grow">
-                <div className="h-24 bg-gray-200 animate-pulse rounded"></div>
+          <div className="overflow-y-auto pr-2" style={{ maxHeight: 'calc(180vh)' }}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17].map((_, index) => (
+              <div key={index} className="flex items-center space-x-4 mb-4">
+                <div className="flex-grow">
+                  <div className="h-24 bg-gray-200 animate-pulse rounded"></div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 

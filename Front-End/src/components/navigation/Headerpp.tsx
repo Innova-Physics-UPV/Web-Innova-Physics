@@ -77,6 +77,16 @@ const Header = () => {
                 Patrocinadores
               </Link>
             </li>
+            <li>
+              <Link href="/particulas" className="text-white hover:text-gray-300 transition-colors">
+                Particulas
+              </Link>
+            </li>
+            <li>
+              <Link href="/noticias" className="text-white hover:text-gray-300 transition-colors">
+                Noticias
+              </Link>
+            </li>
           </ul>
 
           {/* Mobile Menu Button */}
