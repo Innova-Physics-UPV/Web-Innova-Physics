@@ -14,67 +14,40 @@ interface SocialMediaPost {
   content: string;
   author: string;
   timestamp: string;
-  imageUrl?: string;
 }
 
 const NewsPage: React.FC = () => {
   // Placeholder data
   const mainArticle: NewsArticle = {
-    title: 'El futuro de la aceleración de partículas: tecnología que roza la velocidad de la luz',
-    summary: 'Los últimos avances en aceleradores de partículas están transformando la investigación en física cuántica y salud. El CERN lidera proyectos que podrían revolucionar desde la medicina hasta la computación cuántica.',
-    imageUrl: '/imagenes/noticias/acelerador-principal.png'
+    title: 'Main Article Title',
+    summary: 'Summary of the main featured article goes here...',
+    imageUrl: '/placeholder-image.jpg'
   };
-  
+
   const secondaryArticles: NewsArticle[] = [
     {
-      title: 'CERN desarrolla un nuevo colisionador de partículas 10 veces más potente',
-      summary: 'El proyecto FCC (Future Circular Collider) está diseñado para ampliar los límites de la física de partículas más allá del LHC.',
-      imageUrl: '/imagenes/noticias/cern-colisionador.jpg'
+      title: 'Secondary Article 1',
+      summary: 'Brief summary of the first secondary article...',
+      imageUrl: '/placeholder-image-1.jpg'
     },
     {
-      title: 'Aceleradores de partículas aplicados a la medicina: Protonterapia',
-      summary: 'Técnicas avanzadas de protonterapia están salvando vidas gracias a tecnología proveniente de los aceleradores.',
-      imageUrl: '/imagenes/noticias/protonterapia.jpg'
+      title: 'Secondary Article 2',
+      summary: 'Brief summary of the second secondary article...',
+      imageUrl: '/placeholder-image-2.jpg'
     },
     {
-      title: 'Materia Oscura: ¿el próximo gran hallazgo del CERN?',
-      summary: 'Detectar partículas de materia oscura sigue siendo uno de los mayores retos para la física moderna.',
-      imageUrl: '/imagenes/noticias/materia-oscura.jpg'
+      title: 'Secondary Article 3',
+      summary: 'Brief summary of the third secondary article...',
+      imageUrl: '/placeholder-image-3.jpg'
     }
   ];
-
-  const cernNews: NewsArticle[] = [
-    {
-      title: 'El CERN descubre nuevas propiedades del bosón de Higgs',
-      summary: 'Un paso más en la comprensión del universo.',
-      imageUrl: '/imagenes/noticias/higgs.jpg'
-    },
-    {
-      title: 'Nuevos experimentos en el LHCb revelan anomalías cuánticas',
-      summary: 'Resultados que podrían cambiar teorías actuales.',
-      imageUrl: '/imagenes/noticias/lhcp.webp'
-    },
-    {
-      title: 'Abren las puertas del CERN al público este verano',
-      summary: 'Una experiencia inmersiva en el corazón de la ciencia.',
-      imageUrl: '/imagenes/noticias/cern.jpeg'
-    },
-    {
-      title: 'CERN y su compromiso con energías limpias en sus instalaciones',
-      summary: 'Tecnología sostenible para grandes experimentos.',
-      imageUrl: '/imagenes/noticias/energias-limpias.jpg'
-    }
-  ];
-  
-  
 
   const socialMediaPosts: SocialMediaPost[] = [
     {
       platform: 'Twitter',
       content: 'Exciting breakthrough in quantum research! #Science #Innovation',
       author: '@CernOfficial',
-      timestamp: '2h ago',
-      imageUrl: '/imagenes/socialMedia/60.webp'
+      timestamp: '2h ago'
     },
     {
       platform: 'Facebook',
@@ -157,7 +130,7 @@ const NewsPage: React.FC = () => {
           {/* Secondary Articles */}
           <div className="space-y-6 py-10 flex-grow">
             {secondaryArticles.map((article, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden flex items-center">
+              <div key={index} className="bg-primario-100/10 rounded-lg shadow-md overflow-hidden flex items-center">
                 <div className="bg-white rounded-lg shadow-md overflow-hidden flex-shrink-0">
                   <img 
                     src={article.imageUrl} 
@@ -175,27 +148,18 @@ const NewsPage: React.FC = () => {
         </div>
 
         {/* Cern Section */}
-        <div className="overflow-y-auto pr-2" style={{ maxHeight: 'calc(180vh)' }}>
-          <h2 className="text-2xl font-bold mb-4 text-center text-white">CERN</h2>
-
-          {cernNews.map((article, index) => (
-            <div key={index} className="flex items-center justify-between mb-4 bg-white p-4 rounded shadow">
-              <div className="flex-1 pr-4">
-                <h4 className="font-semibold mb-2">{article.title}</h4>
-                <p className="text-sm text-gray-600">{article.summary}</p>
+        <div className="space-y-4 flex flex-col">
+          <h3 className="text-xl font-semibold text-blue-600">Cern</h3>
+          <div className="overflow-y-auto pr-2" style={{ maxHeight: 'calc(180vh)' }}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17].map((_, index) => (
+              <div key={index} className="flex items-center space-x-4 mb-4">
+                <div className="flex-grow">
+                  <div className="h-24 bg-gray-200 animate-pulse rounded"></div>
+                </div>
               </div>
-
-              <div className="w-24 h-24 flex-shrink-0">
-                <img
-                  src={article.imageUrl || '/imagenes/noticias/cern-default.jpg'} 
-                  alt={article.title}
-                  className="w-full h-full object-cover rounded"
-                />
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-
       </div>
 
       {/* Social Media Carousel */}
@@ -205,8 +169,6 @@ const NewsPage: React.FC = () => {
           {socialMediaPosts.map((post, index) => (
             <div key={index} className="px-2">
               <div className="bg-white rounded-lg shadow-md p-4 h-full">
-
-                
                 <p className="font-medium mb-2 text-sm">
                   {post.content}
                 </p>
