@@ -1,31 +1,23 @@
 import React from "react";
 import BaseSection from "../common/BaseSection";
 import Card from "../common/Card";
+import { teamMembers, subDeptStructure ,Coordinadores} from '@/data/departmentData';
 
-const teamMembers = [
-  { name: "John Doe", position: "Astronauta", image: "/imagenes/team/botas.webp" },
-  { name: "Jane Doe", position: "Economista", image: "/imagenes/team/ingenieronuclear.webp" },
-  { name: "Cat One", position: "Informático", image: "/imagenes/team/gatoinformatico.webp" },
-  { name: "Cat Two", position: "Ingeniería de Telecomunicaciones", image: "/imagenes/team/gatoteleco.webp" },
-  { name: "Cat Three", position: "Departamento artístico", image: "/imagenes/team/sashimi.webp" },
-  { name: "Cat Four", position: "Research", image: "/imagenes/team/gatoinvestigador.webp" }
-];
 
 const TeamSection: React.FC =  () => {
   return (
     <BaseSection title="EQUIPO" className="relative z-10">
       {/* Responsive Grid Layout */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
-        {teamMembers.map((member, index) => (
+      <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-8">
+        {Coordinadores.map(({name,role,department,image},index) => (
           <Card
             key={index}
-            image={member.image}
-            title={member.name}
-            subtitle={member.position}
+            image={image}
+            title={name}
+            subtitle={role + "\n" + department}
           />
         ))}
       </div>
-
       {/* Button */}
       <div className="mt-8 text-center">
         <button

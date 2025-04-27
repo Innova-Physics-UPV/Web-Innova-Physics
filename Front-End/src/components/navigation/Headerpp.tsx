@@ -72,11 +72,11 @@ const Header = () => {
                 Team
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/sponsors" className="text-white hover:text-gray-300 transition-colors">
                 Patrocinadores
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/particulas" className="text-white hover:text-gray-300 transition-colors">
                 Particulas

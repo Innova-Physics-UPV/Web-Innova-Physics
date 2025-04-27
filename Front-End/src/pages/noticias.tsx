@@ -136,13 +136,13 @@ const NewsPage: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 mt-10">
       <h1 className="text-3xl font-bold mb-6">NOTICIAS</h1>
       
       <div className="grid md:grid-cols-3 gap-6 items-stretch">
         {/* Main Article Section */}
         <div className="md:col-span-2 flex flex-col space-y-6">
-          <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md">
+          <div className="bg-background rounded-lg overflow-hidden shadow-md">
             <img 
               src={mainArticle.imageUrl} 
               alt={mainArticle.title} 
@@ -150,15 +150,15 @@ const NewsPage: React.FC = () => {
             />
             <div className="p-6">
               <h2 className="text-2xl font-semibold mb-4">{mainArticle.title}</h2>
-              <p className="text-gray-700">{mainArticle.summary}</p>
+              <p className="text-foreground">{mainArticle.summary}</p>
             </div>
           </div>
 
           {/* Secondary Articles */}
           <div className="space-y-6 py-10 flex-grow">
             {secondaryArticles.map((article, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden flex items-center">
-                <div className="bg-white rounded-lg shadow-md overflow-hidden flex-shrink-0">
+              <div key={index} className="bg-background rounded-lg shadow-md overflow-hidden flex items-center">
+                <div className="rounded-lg shadow-md overflow-hidden flex-shrink-0">
                   <img 
                     src={article.imageUrl} 
                     alt={article.title} 
@@ -176,13 +176,13 @@ const NewsPage: React.FC = () => {
 
         {/* Cern Section */}
         <div className="overflow-y-auto pr-2" style={{ maxHeight: 'calc(180vh)' }}>
-          <h2 className="text-2xl font-bold mb-4 text-center text-white">CERN</h2>
+          <h2 className="text-2xl font-bold mb-4 text-center text-foreground">CERN</h2>
 
           {cernNews.map((article, index) => (
-            <div key={index} className="flex items-center justify-between mb-4 bg-white p-4 rounded shadow">
+            <div key={index} className="flex items-center justify-between mb-4 bg-background p-4 rounded shadow">
               <div className="flex-1 pr-4">
-                <h4 className="font-semibold mb-2">{article.title}</h4>
-                <p className="text-sm text-gray-600">{article.summary}</p>
+                <h4 className="font-semibold mb-2 text-foreground">{article.title}</h4>
+                <p className="text-sm text-foreground">{article.summary}</p>
               </div>
 
               <div className="w-24 h-24 flex-shrink-0">
@@ -199,22 +199,22 @@ const NewsPage: React.FC = () => {
       </div>
 
       {/* Social Media Carousel */}
-      <div className="mt-8 bg-gray-50 rounded-lg p-6">
+      <div className="mt-8 bg-background rounded-lg p-6">
         <h3 className="text-xl font-semibold mb-4 text-center">Social Media</h3>
         <Slider {...carouselSettings}>
           {socialMediaPosts.map((post, index) => (
             <div key={index} className="px-2">
-              <div className="bg-white rounded-lg shadow-md p-4 h-full">
+              <div className="bg-background rounded-lg shadow-md p-4 h-full">
 
                 
                 <p className="font-medium mb-2 text-sm">
                   {post.content}
                 </p>
                 <div className="flex justify-between items-center mt-4">
-                  <span className="text-xs text-gray-500">
+                  <span className="text-xs text-foreground">
                     {post.author}
                   </span>
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-foreground">
                     {post.platform} 
                     {' • '}
                     {post.timestamp}

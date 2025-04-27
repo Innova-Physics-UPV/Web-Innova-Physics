@@ -41,7 +41,7 @@ className="relative flex flex-col items-center pt-10"
 >
         <div className="relative flex justify-center">
           {/* Botón principal del departamento */}
-          <button className={`w-[12vw] h-[12vw] bg-foreground rounded-full shadow-lg flex flex-col items-center justify-center z-20 transition-all duration-300 ${isOpen ? 'scale-110' : ''}`}>
+          <button className={`w-[12vw] h-[12vw] bg-background rounded-full shadow-lg flex flex-col items-center justify-center z-20 transition-all duration-300 ${isOpen ? 'scale-110' : ''}`}>
             <div>
               <img
                 src={departmentImageSrc}
@@ -78,7 +78,7 @@ className="relative flex flex-col items-center pt-10"
                   }}
                 >
                   {/* Botón de subdepartamento */}
-                  <button className={`w-[6vw] h-[6vw] bg-foreground rounded-full shadow-lg flex flex-col items-center justify-center z-20 transition-all duration-300 overflow-hidden relative ${isOpen ? 'scale-110' : ''}`}
+                  <button className={`w-[6vw] h-[6vw] bg-background rounded-full shadow-lg flex flex-col items-center justify-center z-20 transition-all duration-300 overflow-hidden relative ${isOpen ? 'scale-110' : ''}`}
                   onClick={() => {
                     scrollToSection(subDept.name);
                     console.log(subDept.name);

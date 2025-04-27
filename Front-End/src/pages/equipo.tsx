@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion, useScroll } from 'framer-motion';
 import DepartmentCircles from '@/components/sections/DepartmentCircles';
-import { teamMembers, subDeptStructure } from '@/data/departmentData';
+import { teamMembers, subDeptStructure ,Coordinadores} from '@/data/departmentData';
 import {SubDepartment, Department, ExpandedDepts, SidebarProps} from '@/types';
 import BaseSection from '@/components/common/BaseSection';
 
@@ -138,32 +138,68 @@ export default function Equipo() {
 
           {/* Secciones de cada subdepartamento */}
           <div className="p-10">
-            {allSubDepartments.map((subDept) => (
-              <BaseSection  title={subDept.name}  key={subDept.name} id={subDept.name}>       
-              <section key={subDept.name}  className="w-full max-w-5xl my-20">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-10">
-                  {teamMembers
-                    .filter(member => member.department === subDept.name)
-                    .map(({ name, role, image }, index) => (
+            <BaseSection  title="Coordinadores"  key="Coordinadores" id="Coordinadores">       
+            <section key="Coordinadores" className="w-full max-w-5xl my-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-10">
+            {Coordinadores
+                    .map(({ name, role,department, image }, index) => (
                       <div
                         key={`${name || role}-${index}`}
                         className="flex flex-col items-center text-center transition-transform duration-300 hover:scale-105"
                       >
                         <div className="w-32 h-32 flex justify-center transition-all duration-300 ease-in-out hover:scale-110">
-                          <img
-                            src={image || "/imagenes/team/avatar.webp"}
+                        <img
+                            src={image}
                             alt={name || role}
                             className="w-full h-full object-cover rounded-full"
+                            onError={(e) => e.target.src = "/imagenes/team/avatar.webp"} // Cambia a la imagen por defecto si ocurre un error
                           />
                         </div>
                         <h3>{name || "Sin asignar"}</h3>
-                        <p className="text-sm opacity-80">{role}</p>
+                        <p className="text-sm opacity-80">{role}  <br />{department}</p>
+
                       </div>
                     ))}
-                </div>
-              </section>
-              </BaseSection>
-            ))}
+
+            </div>
+            </section>
+            </BaseSection>
+        
+            {allSubDepartments.map((subDept) => {
+  // Filtrar los miembros del subdepartamento
+  const membersInDept = teamMembers.filter(member => member.department === subDept.name);
+
+  // Solo renderizar la sección si hay miembros en el subdepartamento
+  if (membersInDept.length === 0) {
+    return null; // No renderiza nada si no hay miembros
+  }
+
+  return (
+    <BaseSection title={subDept.name} key={subDept.name} id={subDept.name}>       
+      <section key={subDept.name} className="w-full max-w-5xl my-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-10">
+          {membersInDept.map(({ name, role, image }, index) => (
+            <div
+              key={`${name || role}-${index}`}
+              className="flex flex-col items-center text-center transition-transform duration-300 hover:scale-105"
+            >
+              <div className="w-32 h-32 flex justify-center transition-all duration-300 ease-in-out hover:scale-110">
+                <img
+                  src={image}
+                  alt={name || role}
+                  className="w-full h-full object-cover rounded-full"
+                  onError={(e) => e.target.src = "/imagenes/team/avatar.webp"} // Cambia a la imagen por defecto si ocurre un error
+                />
+              </div>
+              <h3>{name || "Sin asignar"}</h3>
+              <p className="text-sm opacity-80">{role}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </BaseSection>
+  );
+})}
           </div>
         </div>
       </main>

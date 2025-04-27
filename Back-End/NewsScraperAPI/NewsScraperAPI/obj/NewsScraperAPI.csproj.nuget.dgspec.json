@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nuria\\source\\Repos\\NewsScraperAPI\\NewsScraperAPI\\NewsScraperAPI.csproj": {}
+    "D:\\programines\\Web-Innova-Physics\\Back-End\\NewsScraperAPI\\NewsScraperAPI\\NewsScraperAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nuria\\source\\Repos\\NewsScraperAPI\\NewsScraperAPI\\NewsScraperAPI.csproj": {
+    "D:\\programines\\Web-Innova-Physics\\Back-End\\NewsScraperAPI\\NewsScraperAPI\\NewsScraperAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nuria\\source\\Repos\\NewsScraperAPI\\NewsScraperAPI\\NewsScraperAPI.csproj",
+        "projectUniqueName": "D:\\programines\\Web-Innova-Physics\\Back-End\\NewsScraperAPI\\NewsScraperAPI\\NewsScraperAPI.csproj",
         "projectName": "NewsScraperAPI",
-        "projectPath": "C:\\Users\\nuria\\source\\Repos\\NewsScraperAPI\\NewsScraperAPI\\NewsScraperAPI.csproj",
-        "packagesPath": "C:\\Users\\nuria\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nuria\\source\\Repos\\NewsScraperAPI\\NewsScraperAPI\\obj\\",
+        "projectPath": "D:\\programines\\Web-Innova-Physics\\Back-End\\NewsScraperAPI\\NewsScraperAPI\\NewsScraperAPI.csproj",
+        "packagesPath": "C:\\Users\\Juan Manuel\\.nuget\\packages\\",
+        "outputPath": "D:\\programines\\Web-Innova-Physics\\Back-End\\NewsScraperAPI\\NewsScraperAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nuria\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Juan Manuel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -43,7 +43,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -77,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

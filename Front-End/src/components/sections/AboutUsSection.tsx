@@ -1,17 +1,7 @@
 import React from "react";
 import Gallery from "@/components/common/Gallery";
 import BaseSection from "@/components/common/BaseSection";
-
-const photos = [
-  {
-    url: "https://innova-physics-upv.github.io/assets/imgs/team_fotos/fotoequipo.png",
-    alt: "Teletubbies posando",
-  },
-  {
-    url: "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2022/11/10/16681060461616.jpg",
-    alt: "teletubies2",
-  }
-];
+import { photos } from "@/data/aboutUsData"; // Importa las fotos desde el archivo de datos
 
 const AboutUsSection: React.FC = () => {
   return (

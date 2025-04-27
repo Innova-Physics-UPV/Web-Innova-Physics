@@ -5,6 +5,7 @@ import AboutUsSection from '@/components/sections/AboutUsSection';
 import { useScroll } from 'framer-motion';
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
+import eventEmitter from '@/context/EventEmitter';
 
 export default function Home() {
 
@@ -32,19 +33,17 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 2, duration: 0.5, ease: "easeInOut" }}
               onClick={() => {
-                const event = new Event("aceleron");
-                window.dispatchEvent(event);
+                console.log("...");
+                eventEmitter.emit("Acelearando");
               }}
             >
               Acelerar
             </motion.button>
           </div>
         </div>
-        
-        
           <AboutUsSection />
           <TeamSection />
-          <SponsorSection />
+          {/* <SponsorSection /> */}
         
       </main>
     </>

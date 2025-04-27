@@ -22,7 +22,8 @@ const Card: React.FC<CardProps> = ({ image, title, subtitle, className = "", chi
         <img
           src={image}
           alt={title}
-          className="rounded-lg shadow-lg object-cover h-64 w-full mb-4"
+          className="rounded-lg shadow-lg object-cover w-full mb-4"
+          onError={(e) => e.target.src = "/imagenes/team/avatar.webp"} // Cambia a la imagen por defecto si ocurre un error
         />
       )}
       <h3 className="text-xl font-semibold">{title}</h3>
