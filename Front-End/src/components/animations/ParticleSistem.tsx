@@ -324,9 +324,16 @@ export class ParticleSystem {
         }
     }
 
-    spawnInitialParticles(count: number, v: THREE.Vector3) {
+    private lastSpawnTime: number = 0;
+
+    spawnInitialParticles(count: number, v: THREE.Vector3, urgent?: boolean) {
+        const now = Date.now();
+        if (now - this.lastSpawnTime < 500) return; // Cooldown de 2 segundos
+    
+        this.lastSpawnTime = now;
         for (let i = 0; i < count; i++) {
-            this.createParticle(v);
+            this.createParticle(v, undefined, urgent);
         }
     }
+    
 }

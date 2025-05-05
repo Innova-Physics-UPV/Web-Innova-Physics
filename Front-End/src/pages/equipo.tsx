@@ -128,7 +128,7 @@ export default function Equipo() {
         {/* Contenedor principal */}
         <div className="flex flex-col items-center w-full max-w-screen-xl mx-auto mt-20">
           <section id="DEPARTAMENTOS" className='py-20'>
-            <h1 className="text-3xl font-bold text-center mb-12">NUESTROS MIEMBROS</h1>
+            <h1 className="text-white text-3xl  font-bold text-center mb-12">NUESTROS MIEMBROS</h1>
           </section>
 
           {/* Círculos de Departamentos */}

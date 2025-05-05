@@ -8,7 +8,7 @@ const AboutUsSection: React.FC = () => {
     <BaseSection title="¿QUIÉNES SOMOS?" >
       <div className="relative flex flex-col md:flex-row gap-4 md:gap-10">
         <div className="flex-1">
-          <p className="pt-5 leading-relaxed text-base sm:text-sm md:text-xl">
+          <p className="pt-5 px-8 leading-relaxed text-base sm:text-sm md:text-xl">
             Innova physics UPV es un grupo multidisciplinar de estudiantes interesados en las áreas
             de la física, ingeniería y tecnología.<br />
             Nuestra misión es diseñar y construir una fuente

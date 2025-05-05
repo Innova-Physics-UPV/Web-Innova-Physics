@@ -5,7 +5,6 @@ import AboutUsSection from '@/components/sections/AboutUsSection';
 import { useScroll } from 'framer-motion';
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import eventEmitter from '@/context/EventEmitter';
 
 export default function Home() {
 
@@ -34,7 +33,8 @@ export default function Home() {
               transition={{ delay: 2, duration: 0.5, ease: "easeInOut" }}
               onClick={() => {
                 console.log("...");
-                eventEmitter.emit("Acelearando");
+                const evento = new CustomEvent("Aceleron");
+                window.dispatchEvent(evento);
               }}
             >
               Acelerar

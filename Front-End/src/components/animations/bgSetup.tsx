@@ -12,14 +12,12 @@ const NeonDrawingEffect = ({ activePage }: { activePage: string }) => {
 
   useEffect(() => {
     if (!containerRef.current) return;
-
     const container = containerRef.current;
 
-    // Scene setup
+    // ---- Scene, camera y renderer ----
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color('#111207'); // Change the background color here
+    scene.background = new THREE.Color('#111207');
 
-    // Camera setup
     const camera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
@@ -28,34 +26,35 @@ const NeonDrawingEffect = ({ activePage }: { activePage: string }) => {
     );
     camera.position.z = 14;
 
-    // Renderer setup
-    const renderer = new THREE.WebGLRenderer({ 
-      antialias: true,
-      alpha: true,
-    });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
-    
-    // Establecer el estilo del canvas
     renderer.domElement.style.position = 'absolute';
     renderer.domElement.style.top = '0';
     renderer.domElement.style.left = '0';
     renderer.domElement.style.pointerEvents = 'none';
-    // Curves setup
+    container.appendChild(renderer.domElement);
+
+    // ---- Curvas ----
     const curvesGenerator = new NeonCurvesGenerator();
     const curves = curvesGenerator.generateCurves();
-    curves.forEach(curve => scene.add(curve.mesh));
+    curves.forEach((curve: CurveObject) => scene.add(curve.mesh));
 
-    // Particles setup
+    // ---- Sistema de partículas ----
     const particleSystem = new ParticleSystem(scene, 25);
     particleSystem.spawnInitialParticles(25, new THREE.Vector3(0, 0, 0));
     particleSystemRef.current = particleSystem;
 
-    // Post-processing setup
+    // ---- Listener para evento "Aceleron" ----
+    const handleAceleron = () => {
+      console.log('Aceleron event triggered');
+      particleSystem.spawnInitialParticles(25, new THREE.Vector3(0, 0, 0),true);
+    };
+    window.addEventListener('Aceleron', handleAceleron);
+
+    // ---- Post-procesado ----
     const composer = new EffectComposer(renderer);
     composer.addPass(new RenderPass(scene, camera));
-
     const bloomPass = new UnrealBloomPass(
       new THREE.Vector2(window.innerWidth, window.innerHeight),
       1.5,
@@ -67,25 +66,37 @@ const NeonDrawingEffect = ({ activePage }: { activePage: string }) => {
     bloomPass.radius = 0;
     composer.addPass(bloomPass);
 
-    // Handle resize
+    // ---- Resize ----
     const handleResize = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
-
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
-
       renderer.setSize(width, height);
       composer.setSize(width, height);
     };
-
     window.addEventListener('resize', handleResize);
 
-    // Animation
+    // ---- Click para crear partículas (solo en '/particulas') ----
+    let onClick: ((e: MouseEvent) => void) | null = null;
+    if (activePage === '/particulas') {
+      const mouse = new THREE.Vector2();
+      const raycaster = new THREE.Raycaster();
+      onClick = (event: MouseEvent) => {
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        raycaster.setFromCamera(mouse, camera);
+        const position = new THREE.Vector3();
+        raycaster.ray.at(5, position);
+        particleSystem.createParticle(position, undefined, true);
+      };
+      window.addEventListener('click', onClick);
+    }
+
+    // ---- Animación ----
     let startTime = Date.now();
     const animate = () => {
-      const currentTime = Date.now();
-      const elapsed = currentTime - startTime;
+      const elapsed = Date.now() - startTime;
       const globalProgress = Math.min(elapsed / 8000, 1.1) * 5;
 
       curves.forEach((curve, i) => {
@@ -100,39 +111,14 @@ const NeonDrawingEffect = ({ activePage }: { activePage: string }) => {
       composer.render();
       requestAnimationFrame(animate);
     };
-
     animate();
 
-    if (activePage === '/particulas') {
-      const mouse = new THREE.Vector2();
-      const raycaster = new THREE.Raycaster();
-
-      const onClick = (event: MouseEvent): void => {
-        // Calculate normalized coordinates
-        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-        // Update the raycaster
-        raycaster.setFromCamera(mouse, camera);
-
-        // Calculate a point in 3D space
-        const position = new THREE.Vector3();
-        raycaster.ray.at(5, position);
-
-        particleSystem.createParticle(position, undefined, true);
-      };
-
-      window.addEventListener('click', onClick);
-
-      // Cleanup click event listener
-      return () => {
-        window.removeEventListener('click', onClick);
-      };
-    }
-
-    // Cleanup
+    // ---- Cleanup----
     return () => {
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('Aceleron', handleAceleron);
+      if (onClick) window.removeEventListener('click', onClick);
+
       renderer.dispose();
       composer.dispose();
       curves.forEach(curve => {
@@ -143,12 +129,11 @@ const NeonDrawingEffect = ({ activePage }: { activePage: string }) => {
         container.removeChild(renderer.domElement);
       }
     };
-  }, [activePage]); // Add activePage to the dependency array
+  }, [activePage]);
 
   return (
-    <div 
+    <div
       ref={containerRef}
-     
       style={{
         position: 'absolute',
         top: 0,
@@ -156,7 +141,7 @@ const NeonDrawingEffect = ({ activePage }: { activePage: string }) => {
         width: '100%',
         height: '100%',
         pointerEvents: 'none',
-       zIndex:-10,
+        zIndex: -10,
       }}
     />
   );
