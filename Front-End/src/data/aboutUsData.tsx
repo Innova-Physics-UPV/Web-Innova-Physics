@@ -1,11 +1,18 @@
-
+//Fotos de la sección de AbotUs
 export const photos = [
   {
-    url: "https://innova-physics-upv.github.io/assets/imgs/team_fotos/fotoequipo.png",
-    alt: "Teletubbies posando",
+    url1: "/imagenes/galeriafotos/FOTO_EQUIPO_24.png",
+    url2: "",
+    alt: "Foto de equipo del año 2023-2024",
   },
   {
-    url: "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2022/11/10/16681060461616.jpg",
-    alt: "teletubies2",
+    url1: "/imagenes/galeriafotos/FOTO_IFIC.JPG",
+    url2:"",
+    alt: "Visita al Instituto de Física Corpuscular (IFIC)",
+  },
+  {
+    url1:"/imagenes/galeriafotos/FERIA_1.jpeg",
+    url2:"",
+    alt:"Fira dels Invents"
   }
 ];

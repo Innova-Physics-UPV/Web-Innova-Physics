@@ -46,11 +46,11 @@ const NeonDrawingEffect = ({ activePage }: { activePage: string }) => {
     particleSystemRef.current = particleSystem;
 
     // ---- Listener para evento "Aceleron" ----
-    const handleAceleron = () => {
+    const handleAceleron = (e:CustomEvent) => {
       console.log('Aceleron event triggered');
-      particleSystem.spawnInitialParticles(25, new THREE.Vector3(0, 0, 0),true);
+      particleSystem.spawnInitialParticles(25, new THREE.Vector3(0, 0, 0),true,e.detail.cooldown);
     };
-    window.addEventListener('Aceleron', handleAceleron);
+    window.addEventListener('Aceleron', handleAceleron as EventListener);
 
     // ---- Post-procesado ----
     const composer = new EffectComposer(renderer);
@@ -116,7 +116,7 @@ const NeonDrawingEffect = ({ activePage }: { activePage: string }) => {
     // ---- Cleanup----
     return () => {
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('Aceleron', handleAceleron);
+      window.removeEventListener('Aceleron', handleAceleron as EventListener);
       if (onClick) window.removeEventListener('click', onClick);
 
       renderer.dispose();

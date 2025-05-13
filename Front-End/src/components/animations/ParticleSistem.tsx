@@ -326,9 +326,9 @@ export class ParticleSystem {
 
     private lastSpawnTime: number = 0;
 
-    spawnInitialParticles(count: number, v: THREE.Vector3, urgent?: boolean) {
+    spawnInitialParticles(count: number, v: THREE.Vector3, urgent?: boolean,cooldown:number=0) {
         const now = Date.now();
-        if (now - this.lastSpawnTime < 500) return; // Cooldown de 2 segundos
+        if (now - this.lastSpawnTime < cooldown) return;
     
         this.lastSpawnTime = now;
         for (let i = 0; i < count; i++) {

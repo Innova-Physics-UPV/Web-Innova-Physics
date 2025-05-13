@@ -174,7 +174,7 @@ const NewsPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Cern Section */}
+        {/* Cern Section 
         <div className="overflow-y-auto pr-2" style={{ maxHeight: 'calc(180vh)' }}>
           <h2 className="text-2xl font-bold mb-4 text-center text-foreground">CERN</h2>
 
@@ -195,7 +195,7 @@ const NewsPage: React.FC = () => {
             </div>
           ))}
         </div>
-
+        */}
       </div>
 
       {/* Social Media Carousel */}

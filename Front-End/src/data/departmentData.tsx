@@ -1,5 +1,5 @@
 import { Department } from "@/types";
-
+//Estructura del departamento
 export const subDeptStructure: Department[] = [
   {
     name: "Tech",
@@ -32,7 +32,7 @@ export const subDeptStructure: Department[] = [
     ],
   },
 ];
-
+//Miembros de los departamentos
 export const teamMembers = [
   { name: "Mateo Gajić Sales", role: "Dirección", department: "Applied Physics", image: "/imagenes/team/Mateo_Gajić_Sales.png" },
   { name: "Debinamaca Ainoo Pérez", role: "Dirección", department: "Applied Physics", image: "/imagenes/team/Debinamaca_Ainoo_Pérez.png" },
@@ -53,7 +53,7 @@ export const teamMembers = [
   { name: "Marco Nieto Pérez", role: "Administrative", department: "Administrative", image: "/imagenes/team/Marco_Nieto_Pérez.png" },
   { name: "Lucas Tarragó Mahiques", role: "Administrative", department: "Administrative", image: "/imagenes/team/Lucas_Tarragó_Mahiques.png" },
 ];
-
+//Coordinadores
 export const Coordinadores = [
   { name: "Mateo Gajić Sales", role: "Coordinador", department: "Marketing", image: "/imagenes/team/Mateo_Gajić_Sales.png" },
   {name:"Victor Martín Kruglova", role: "Coordinador", department: "Operations", image: "/imagenes/team/Víctor_Martín_Kruglova.png" },
