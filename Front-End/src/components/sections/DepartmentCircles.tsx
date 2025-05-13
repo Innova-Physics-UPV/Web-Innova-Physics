@@ -90,13 +90,13 @@ className="relative flex flex-col items-center pt-10"
                         className="w-[clamp(24px,10vw,120px)] h-[clamp(24px,10vw,120px)] object-contain"
                       />
                   </button>
-                  <p className="text-foreground text-xs">{subDept.name}</p>
+                  <p className="text-foreground text-xs text-white">{subDept.name}</p>
                 </div>
               );
             })}
           </div>
         </div>
-        <p className="font-semibold">{department.name}</p>
+        <p className="font-semibold text-white">{department.name}</p>
       </div>
     );
   };

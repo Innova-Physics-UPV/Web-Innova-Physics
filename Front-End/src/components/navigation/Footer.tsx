@@ -1,4 +1,5 @@
 import React from "react";
+import { FaInstagram, FaLinkedin, FaLink } from "react-icons/fa";
 
 const Footer: React.FC = () => {
   return (
@@ -10,32 +11,59 @@ const Footer: React.FC = () => {
             <h3>Contacto</h3>
             <p>
               Email:{" "}
-              <a href="mailto:contacto@ejemplo.com" className="underline hover:text-gray-400">
-                contacto@ejemplo.com
+              <a
+                href="mailto:innovaphysicsupv@gmail.com"
+                className="underline hover:text-gray-400"
+              >
+                innovaphysicsupv@gmail.com
               </a>
             </p>
-            <p>Teléfono: +123 456 7890</p>
+            <p>Ubicación: Camí de Vera S/N, Valencia</p>
           </div>
 
-          {/* Enlaces rápidos */}
+          {/* Redes sociales */}
           <div className="mb-4 md:mb-0">
-            <h3>Enlaces rápidos</h3>
-            <ul>
-              <li>
-                <a href="#about" className="underline hover:text-gray-400">Acerca de</a>
+            <h3>Redes y enlaces</h3>
+            <ul className="flex flex-col gap-2">
+              <li className="flex items-center gap-2">
+                <FaInstagram />
+                <a
+                  href="https://www.instagram.com/innovaphysicsupv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-gray-400"
+                >
+                  Instagram
+                </a>
               </li>
-              <li>
-                <a href="#services" className="underline hover:text-gray-400">Servicios</a>
+              <li className="flex items-center gap-2">
+                <FaLinkedin />
+                <a
+                  href="https://www.linkedin.com/company/innovaphyisicsupv/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-gray-400"
+                >
+                  LinkedIn
+                </a>
               </li>
-              <li>
-                <a href="#privacy" className="underline hover:text-gray-400">Política de Privacidad</a>
+              <li className="flex items-center gap-2">
+                <FaLink />
+                <a
+                  href="https://linktr.ee/innovaphysicsupv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-gray-400"
+                >
+                  Linktree
+                </a>
               </li>
             </ul>
           </div>
 
           {/* Derechos de autor */}
           <div className="text-center md:text-right">
-            <p>&copy; {new Date().getFullYear()} Mi Página. Todos los derechos reservados.</p>
+            <p>&copy; {new Date().getFullYear()} InnovaPhysics UPV. Todos los derechos reservados.</p>
           </div>
         </div>
       </div>

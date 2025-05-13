@@ -34,28 +34,29 @@ export const subDeptStructure: Department[] = [
 ];
 //Miembros de los departamentos
 export const teamMembers = [
-  { name: "Mateo Gajić Sales", role: "Dirección", department: "Applied Physics", image: "/imagenes/team/Mateo_Gajić_Sales.png" },
-  { name: "Debinamaca Ainoo Pérez", role: "Dirección", department: "Applied Physics", image: "/imagenes/team/Debinamaca_Ainoo_Pérez.png" },
-  { name: "Laura Gil Bosch", role: "Estructuras & Mecanismos", department: "Applied Physics", image: "/imagenes/team/Laura_Gil_Bosch.png" },
-  { name: "María Morón Romero", role: "Físico", department: "Applied Physics", image: "/imagenes/team/María_Morón_Romero.png" },
-  { name: "Paula Almeida Guijarro", role: "Diseño", department: "Applied Physics", image: "/imagenes/team/Paula_Almeida_Guijarro.png" },
-  { name: "Juan Manuel Flores de la Cruz", role: "Software", department: "Software", image: "/imagenes/team/Juan_Manuel_Flores_de_la_Cruz.jpg" },
-  { name: "Mari Carmen Rea Rejia", role: "Software", department: "Software", image: "/imagenes/team/Mari_Carmen_Rea_Rejia.png" },
-  { name: "Marc Sanchis Llinares", role: "Hardware", department: "Hardware", image: "/imagenes/team/Marc_Sanchis_Llinares.png" },
-  {name: "Pau Anyó Calabuig", role: "Hardware", department: "Hardware", image: "/imagenes/team/Pau_Anyó_Calabuig.png" },
-  {name: "Marta Molés Herrero", role: "Estructuras", department: "Structures & Design", image: "/imagenes/team/Marta_Molés_Herrero.png" },
-  {name: "Andrés Monteagudo Alcorisa", role: "Estructuras", department: "Structures & Design", image: "/imagenes/team/Andrés_Monteagudo_Alcorisa.png" },
-  {name: "Mireia Malondra Linares", role: "Estructuras", department: "Structures & Design", image: "/imagenes/team/Mireia_Malondra_Linares.png" },
-  {name: "Pau	De Miguel Pérez", role: "Estructuras", department: "Image & Engagement", image: "/imagenes/team/Pau_De_Miguel_Pérez.png" },
-  { name: "Ethan Montes Benavent", role: "Desarrollador", department: "Social Media", image: "/imagenes/team/Ethan_Montes_Benavent.png" },
-  {name: "Irene Moya Gómez", role: "Desarrollador", department: "Social Media", image: "/imagenes/team/Irene_Moya_Gómez.png" },
-  { name: "Víctor Martín Kruglova", role: "Administrative", department: "Administrative", image: "/imagenes/team/Víctor_Martín_Kruglova.png" },
-  { name: "Marco Nieto Pérez", role: "Administrative", department: "Administrative", image: "/imagenes/team/Marco_Nieto_Pérez.png" },
-  { name: "Lucas Tarragó Mahiques", role: "Administrative", department: "Administrative", image: "/imagenes/team/Lucas_Tarragó_Mahiques.png" },
+  { name: "Andrés Monteagudo Alcorisa", role: "Estructuras", department: "Structures & Design", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155902/Andr%C3%A9s_Monteagudo_elw9dc.png" },
+  { name: "Debinamaca Ainoo Pérez", role: "Dirección", department: "Applied Physics", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155897/Debinamaca_Ainoo_P%C3%A9rez_edg76j.png" },
+  { name: "Ethan Montes Benavent", role: "Desarrollador", department: "Social Media", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/Ethan_Montes_Benavent.png" },
+  { name: "Irene Moya Gómez", role: "Desarrollador", department: "Social Media", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/Irene_Moya_G%C3%B3mez.png" },
+  { name: "Juan Manuel Flores de la Cruz", role: "Software", department: "Software", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747153008/Juan_Manuel_Flores_de_la_Cruz_qjtbly.jpg" },
+  { name: "Laura Gil Bosch", role: "Estructuras & Mecanismos", department: "Applied Physics", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747153010/Laura_Gil_Bosch_slaltj.png" },
+  { name: "Lucas Tarragó Mahiques", role: "Administrative", department: "Administrative", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747153009/Lucas_Tarrag%C3%B3_Mahiques_ytnzof.png" },
+  { name: "Marc Sanchis Llinares", role: "Hardware", department: "Hardware", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/Marc_Sanchis_Llinares.png" },
+  { name: "Marco Nieto Pérez", role: "Administrative", department: "Administrative", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747153011/Marco_Nieto_P%C3%A9rez_x9bf6j.png" },
+  { name: "Mari Carmen Rea Rejia", role: "Software", department: "Software", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747153014/Mari_Carmen_Rea_Rejia_wn0hwt.png" },
+  { name: "María Morón Romero", role: "Físico", department: "Applied Physics", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/Mar%C3%ADa_Mor%C3%B3n_Romero.png" },
+  { name: "Marta Molés Herrero", role: "Estructuras", department: "Structures & Design", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747153014/Marta_Mol%C3%A9s_Herrero_bbeqel.png" },
+  { name: "Mateo Gajić Sales", role: "Dirección", department: "Applied Physics", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747153016/Mateo_Gaji%C4%87_Sales_ykf4ij.png" },
+  { name: "Mireia Malondra Linares", role: "Estructuras", department: "Structures & Design", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/Mireia_Malondra_Linares.png" },
+  { name: "Paula Almeida Guijarro", role: "Diseño", department: "Applied Physics", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/Paula_Almeida_Guijarro.png" },
+  { name: "Pau De Miguel Pérez", role: "Estructuras", department: "Image & Engagement", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/Pau_De_Miguel_P%C3%A9rez.png" },
+  { name: "Pau Anyó Calabuig", role: "Hardware", department: "Hardware", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/Pau_Any%C3%B3_Calabuig.png" },
+  { name: "Víctor Martín Kruglova", role: "Administrative", department: "Administrative", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747153017/V%C3%ADctor_Mart%C3%ADn_Kruglova_ldegks.png" },
 ];
-//Coordinadores
+
 export const Coordinadores = [
-  { name: "Mateo Gajić Sales", role: "Coordinador", department: "Marketing", image: "/imagenes/team/Mateo_Gajić_Sales.png" },
-  {name:"Victor Martín Kruglova", role: "Coordinador", department: "Operations", image: "/imagenes/team/Víctor_Martín_Kruglova.png" },
-{name:"Marc Sanchis Llinares", role: "Coordinador", department: "Tech", image: "/imagenes/team/Marc_Sanchis_Llinares.png" },
-]
+  { name: "Marc Sanchis Llinares", role: "Coordinador", department: "Tech", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/Marc_Sanchis_Llinares.png" },
+  { name: "Mateo Gajić Sales", role: "Coordinador", department: "Marketing", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747153016/Mateo_Gaji%C4%87_Sales_ykf4ij.png" },
+  { name: "Victor Martín Kruglova", role: "Coordinador", department: "Operations", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747153017/V%C3%ADctor_Mart%C3%ADn_Kruglova_ldegks.png" },
+];
+
