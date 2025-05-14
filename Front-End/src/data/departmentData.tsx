@@ -3,30 +3,29 @@ import { Department } from "@/types";
 export const subDeptStructure: Department[] = [
   {
     name: "Tech",
-    image: "/logos/departamentos/Tech.png",
+    image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747265846/Tech_mxba0l.png",
     subDepartments: [
-      { name: "Software", image: "/logos/departamentos/Software.png" },
-      { name: "Hardware", image: "/logos/departamentos/Hardware.png" },
-      { name: "Applied Physics", image: "/logos/departamentos/AppliedPhysics.png" },
-      { name: "Structures & Design", image: "/logos/departamentos/Structures&Design.png" },
+      { name: "Software", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747265845/Software_dzcfui.png" },
+      { name: "Hardware", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747265842/Hardware_wopu2s.png" },
+      { name: "Applied Physics", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747265841/AppliedPhysics_wofn6z.png" },
+      { name: "Structures & Design", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747265846/Structures_Design_uoje04.png" },
     ],
   },
   {
     name: "Operations",
-    image: "/logos/departamentos/Operaciones.png",
-   
+    image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747265843/Operaciones_kj15uk.png",
     subDepartments: [
-     { name: "Economics", image: "/logos/departamentos/Economics.png" },
-      { name: "Administrative", image: "/logos/departamentos/Administrative.png" },
+      { name: "Economics", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747265842/Economics_srdxl0.png" },
+      { name: "Administrative", image: "/logos/departamentos/Administrative.png" }, // URL pendiente
     ],
   },
   {
     name: "Marketing",
-    image: "/logos/departamentos/Marketing.png",
+    image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747265842/Marketing_dt8qnu.png",
     subDepartments: [
-      { name: "Image & Engagement", image: "/logos/departamentos/Imagen&Engagement.png" },
-     { name: "Relationships & Partners", image: "/logos/departamentos/Relationships&Partners.png" },
-      { name: "Social Media", image: "/logos/departamentos/SocialMedia.png"},
+      { name: "Image & Engagement", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747265842/Imagen_Engagement_ck5xnv.png" },
+      { name: "Relationships & Partners", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747265844/Relationships_Partners_qpjlzi.png" },
+      { name: "Social Media", image: "/logos/departamentos/SocialMedia.png" }, // URL pendiente
     ],
   },
 ];
