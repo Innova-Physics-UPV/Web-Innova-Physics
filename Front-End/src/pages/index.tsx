@@ -66,7 +66,7 @@ export default function Home() {
         </div>
         <AboutUsSection />
         <TeamSection />
-        {/* <SponsorSection /> */}
+         <SponsorSection /> 
       </main>
     </>
   );

@@ -11,6 +11,8 @@ const allSubDepartments = subDeptStructure.flatMap(dept => dept.subDepartments);
 export default function Equipo() {
   const [showSidebar, setShowSidebar] = useState(false);
   const { scrollYProgress } = useScroll();
+
+
   useEffect(() => {
     const unsubscribe = scrollYProgress.on('change', (current) => {
       setShowSidebar(current > 0.1);
@@ -167,7 +169,7 @@ export default function Equipo() {
                             />
                           </div>
                           <h3>{name || "Sin asignar"}</h3>
-                          <p className="text-sm opacity-80">{role}</p>
+                          {/*<p className="text-sm opacity-80">{role}</p> */}
                         </div>
                       ))}
                     </div>

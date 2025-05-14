@@ -93,3 +93,17 @@ button:not(.gallery-container button):not(.text-button button) {
 .bg-background {
   background-color: var(--background);
 }
+/* en tu CSS global */
+.aspect-square {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+}
+.aspect-square > img,
+.aspect-square > div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

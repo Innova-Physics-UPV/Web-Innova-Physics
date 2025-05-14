@@ -1,12 +1,10 @@
 export interface SubDepartment {
     name: string;
     image: string;
-    hoverImage: string;
-  }
+ }
   export interface Department {
     name: string;
     image:string;
-    hoverImage:string;
     subDepartments: SubDepartment[];
   }
   export interface ExpandedDepts {
