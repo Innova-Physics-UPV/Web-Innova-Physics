@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: "export",
-   basePath: '/Web-Innova-Physics',
+   //basePath: '/Web-Innova-Physics',
   eslint: {
     ignoreDuringBuilds: true,
   },
