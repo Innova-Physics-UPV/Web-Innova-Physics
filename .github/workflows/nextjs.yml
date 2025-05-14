@@ -31,7 +31,7 @@ jobs:
         run: npm ci
         working-directory: ./Front-End
 
-      - name: Build & Export estático
+      - name: Build estático
         run: npm run build
         working-directory: ./Front-End
 
@@ -47,4 +47,3 @@ jobs:
 
       - name: Publica en GitHub Pages
         uses: actions/deploy-pages@v4
-
