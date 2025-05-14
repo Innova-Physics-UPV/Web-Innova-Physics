@@ -29,9 +29,11 @@ jobs:
 
       - name: Instala dependencias
         run: npm ci
+        working-directory: ./Front-End
 
       - name: Build & Export estático
-        run: npm run build   # genera la carpeta out/
+        run: npm run build
+        working-directory: ./Front-End
 
       - name: Configura Pages
         uses: actions/configure-pages@v5
@@ -41,7 +43,7 @@ jobs:
       - name: Sube artefacto
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: Front-End/out
 
       - name: Publica en GitHub Pages
         uses: actions/deploy-pages@v4
