@@ -33,7 +33,6 @@ export const subDeptStructure: Department[] = [
 export const teamMembers = [
   { name: "Ana Maset Sola", role: "Estructuras", department: "Structures & Design" },
   { name: "Andrés Monteagudo Alcorisa", role: "Estructuras", department: "Structures & Design", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155902/Andr%C3%A9s_Monteagudo_elw9dc.png" },
-  { name: "Carlos Mauri García", role: "Relaciones", department: "Relationships & Partners" },
   { name: "Debinamaca Ainoo Pérez", role: "Dirección", department: "Applied Physics", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155897/Debinamaca_Ainoo_P%C3%A9rez_edg76j.png" },
   { name: "Ethan Montes Benavent", role: "Desarrollador", department: "Social Media" },
   { name: "Irene Moya Gómez", role: "Desarrollador", department: "Social Media" },
@@ -48,7 +47,6 @@ export const teamMembers = [
   { name: "Marta Molés Herrero", role: "Estructuras", department: "Structures & Design", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155872/Marta_Mol%C3%A9s_Herrero_sp1ryy.png" },
   { name: "Mateo Gajić Sales", role: "Dirección", department: "Applied Physics", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155879/Mateo_Gaji%C4%87_Sales_yiw7jt.png" },
   { name: "Mireia Malondra Linares", role: "Estructuras", department: "Structures & Design" },
-  { name: "Núria Vanyó Santonja", role: "Software", department: "Software" },
   { name: "Paula Almeida Guijarro", role: "Diseño", department: "Applied Physics" },
   { name: "Pau Anyó Calabuig", role: "Hardware", department: "Hardware", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155874/Pau_Any%C3%B3_Calabuig_zq4pow.jpg" },
   { name: "Pau De Miguel Pérez", role: "Imagen", department: "Image & Engagement", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155866/Pau_De_Miguel_P%C3%A9rez_tj5mal.jpg" },
