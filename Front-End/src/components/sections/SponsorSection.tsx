@@ -18,7 +18,6 @@ const SponsorsSection: React.FC = () => {
         { sponsors.map((s) => (
   <Card
     key={s.id}
-    title={s.name}
     image={s.logo}
     url={s.url}
     shape="rect"            // <- aquí indicas logo rectangular
