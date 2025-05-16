@@ -6,49 +6,30 @@ interface CardProps {
   title?: string;
   subtitle?: string;
   url?: string;
-  shape?: 'circle' | 'rect'; // Nuevo prop para distinguir forma
   className?: string;
   children?: React.ReactNode;
 }
 
-const Card: React.FC<CardProps> = ({ image, title = "", subtitle, url, shape = 'circle', className = "", children }) => {
-  const [imgSrc, setImgSrc] = useState<string>(image || "");
-  const [imgLoaded, setImgLoaded] = useState<boolean>(false);
-  const fallbackImage = "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747262948/avatar_xubp5u.webp";
+const fallbackAvatar = "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747262948/avatar_xubp5u.webp";
+
+const Card: React.FC<CardProps> = ({
+  image,
+  title = "",
+  subtitle,
+  url,
+  className = "",
+  children
+}) => {
+  // Manage image source with fallback
+  const [src, setSrc] = useState<string>(image ?? fallbackAvatar);
 
   useEffect(() => {
-    setImgSrc(image || "");
-    setImgLoaded(false);
+    setSrc(image ?? fallbackAvatar);
   }, [image]);
 
-  useEffect(() => {
-    if (!imgSrc) return;
-    const img = new Image();
-    img.src = imgSrc;
-    const handleLoad = () => setImgLoaded(true);
-    const handleError = () => setImgSrc(fallbackImage);
-    img.addEventListener('load', handleLoad);
-    img.addEventListener('error', handleError);
-    const timeoutId = setTimeout(() => {
-      if (!imgLoaded && imgSrc !== fallbackImage) setImgSrc(fallbackImage);
-    }, 5000);
-    return () => {
-      img.removeEventListener('load', handleLoad);
-      img.removeEventListener('error', handleError);
-      clearTimeout(timeoutId);
-    };
-  }, [imgSrc, imgLoaded]);
-
-  const handleClick = () => { if (url) window.location.href = url; };
-
-  // Determinar clases de contenedor de imagen
-  const imgContainerClasses = shape === 'circle'
-    ? 'w-full aspect-square overflow-hidden rounded-full mb-4'
-    : 'w-full mb-4';
-
-  const imgClasses = shape === 'circle'
-    ? 'w-full h-full object-cover'
-    : 'w-full object-contain';
+  const handleClick = () => {
+    if (url) window.location.href = url;
+  };
 
   return (
     <motion.div
@@ -59,19 +40,15 @@ const Card: React.FC<CardProps> = ({ image, title = "", subtitle, url, shape = '
       className={`w-full p-4 rounded-xl shadow-md bg-background ${url ? 'cursor-pointer' : ''} ${className}`}
       onClick={handleClick}
     >
-      {imgSrc && (
-        <div className={imgContainerClasses}>
-          <img
-            src={imgSrc}
-            alt={title}
-            className={imgClasses}
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              if (imgSrc !== fallbackImage) setImgSrc(fallbackImage);
-            }}
-          />
-        </div>
-      )}
+      <div className="w-full aspect-square overflow-hidden rounded-full mb-4 flex items-center justify-center bg-muted">
+        <img
+          src={src}
+          alt={title}
+          className="w-full h-full object-cover"
+          onError={() => setSrc(fallbackAvatar)}
+        />
+      </div>
+
       {title && <h3 className="text-xl font-semibold">{title}</h3>}
       {subtitle && <p className="text-sm text-description">{subtitle}</p>}
       {children}
