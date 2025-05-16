@@ -60,7 +60,7 @@ export default function Equipo() {
         <AnimatePresence>
           {showSidebar && (
             <motion.div
-              className="fixed left-4 top-20 z-10"
+              className="hidden md:block fixed left-4 top-20 z-10"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
@@ -114,7 +114,9 @@ export default function Equipo() {
             <h1 className="text-white text-3xl font-bold text-center mb-12">NUESTROS MIEMBROS</h1>
           </section>
 
-          <DepartmentCircles scrollToSection={scrollToSection} />
+          <div className="hidden md:block">
+            <DepartmentCircles scrollToSection={scrollToSection} />
+          </div>
 
           <div className="p-10">
             <BaseSection title="Coordinadores" key="Coordinadores" id="Coordinadores">
