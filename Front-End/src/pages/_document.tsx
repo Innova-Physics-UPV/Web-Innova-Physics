@@ -7,7 +7,10 @@ export default function Document() {
       <Head>
         {/* Meta tags globales */}
         <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+         <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
         {/* Fuentes globales */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -17,7 +20,7 @@ export default function Document() {
         {/* Favicon */}
         <link rel="icon" href="/logos/isotipo_COLOR.svg" />
       </Head>
-      <body className="text-gray-800">
+      <body>
         <Main />
         <NextScript />
       </body>
