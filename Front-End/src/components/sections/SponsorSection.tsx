@@ -3,10 +3,10 @@ import BaseSection from "@/components/common/BaseSection";
 import Card from "@/components/common/Card";
 
 const sponsors = [
-  { id: "1", name: "Generación espontanea", logo: "logos/sponsors/GeneracionEspontanea.png",url:"https://www.upv.es/entidades/adge/", tier: "" },
-  { id: "2", name: "UPV", logo: "logos/sponsors/UPV.png",url:"https://www.upv.es/", tier: "" },
-  { id: "3", name: "Escuela superior de telecomunicaciones",logo:"logos/sponsors/ETSIT.png",url:"https://www.upv.es/entidades/etsit/", tier:""},
-  {id:"4", name:"Instituto de matematica pura y aplicada",logo:"logos/sponsors/IUMPA.png",url:"https://www.upv.es/entidades/IMPA/",tier:""},
+  { id: "1", name: "Generación espontanea", logo: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747391948/GeneracionEspontanea_rqny7g.png",url:"https://www.upv.es/entidades/adge/", tier: "" },
+  { id: "2", name: "UPV", logo: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747391949/UPV_lswqut.png",url:"https://www.upv.es/", tier: "" },
+  { id: "3", name: "Escuela superior de telecomunicaciones",logo:"https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747391947/ETSIT_pax9tw.png",url:"https://www.upv.es/entidades/etsit/", tier:""},
+  {id:"4", name:"Instituto de matematica pura y aplicada",logo:"https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747391948/IUMPA_ovdz1t.png",url:"https://www.upv.es/entidades/IMPA/",tier:""},
   // Add more sponsors here
 ];
 
@@ -18,6 +18,7 @@ const SponsorsSection: React.FC = () => {
         { sponsors.map((s) => (
   <Card
     key={s.id}
+    title={s.name}
     image={s.logo}
     url={s.url}
     shape="rect"            // <- aquí indicas logo rectangular
