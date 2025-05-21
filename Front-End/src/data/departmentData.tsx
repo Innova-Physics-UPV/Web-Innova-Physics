@@ -51,9 +51,9 @@ export const teamMembers = [
   { name: "Pau Anyó Calabuig", role: "Hardware", department: "Hardware", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155874/Pau_Any%C3%B3_Calabuig_zq4pow.jpg" },
   { name: "Pau De Miguel Pérez", role: "Imagen", department: "Image & Engagement", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155866/Pau_De_Miguel_P%C3%A9rez_tj5mal.jpg" },
   { name: "Valentina Inmaculada García Manrique", role: "Imagen", department: "Image & Engagement" },
-  { name: "Víctor Martín Kruglova", role: "Gestión", department: "Administrative", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155887/V%C3%ADctor_Mart%C3%ADn_Kruglova_vhjx3z.png" }
+  { name: "Víctor Martín Kruglova", role: "Gestión", department: "Administrative", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155887/V%C3%ADctor_Mart%C3%ADn_Kruglova_vhjx3z.png" },
+  { name: "Víctor Martín Kruglova", role: "Gestión", department: "Economics", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155887/V%C3%ADctor_Mart%C3%ADn_Kruglova_vhjx3z.png" }
 ];
-
 
 export const Coordinadores = [
   { name: "Marc Sanchis Llinares", role: "Coordinador", department: "Tech", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747262038/Marc_Sanchis_Llinares_rceyzb.png" },
