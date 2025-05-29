@@ -5,6 +5,7 @@ export default function Document() {
   return (
     <Html lang="es">
       <Head>
+        <title>Innova Physics Upv</title>
         {/* Meta tags globales */}
         <meta charSet="UTF-8" />
          <meta

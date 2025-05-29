@@ -37,7 +37,7 @@ export const teamMembers = [
   { name: "Ethan Montes Benavent", role: "Desarrollador", department: "Social Media" },
   { name: "Irene Moya Gómez", role: "Desarrollador", department: "Social Media" },
   { name: "Juan Manuel Flores de la Cruz", role: "Software", department: "Software", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155899/Juan_Manuel_Flores_de_la_Cruz_qdigeq.jpg" },
-  { name: "Juan Manuel Prior Sánchez", role: "Relaciones", department: "Relationships & Partners", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747262331/Juan_Manuel_Prior_S%C3%A1nchez_kkffyk.jpg" },
+  { name: "Juan Manuel Prior Sánchez", role: "Relaciones", department: "Structures & Design", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747262331/Juan_Manuel_Prior_S%C3%A1nchez_kkffyk.jpg" },
   { name: "Laura Gil Bosch", role: "Estructuras & Mecanismos", department: "Applied Physics", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155894/Laura_Gil_Bosch_aczzze.png" },
   { name: "Lucas Tarragó Mahiques", role: "Gestión", department: "Administrative", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747155890/Lucas_Tarrag%C3%B3_Mahiques_rh2yws.png" },
   { name: "Marc Sanchis Llinares", role: "Hardware", department: "Hardware", image: "https://res.cloudinary.com/dpdcyfjnv/image/upload/v1747262038/Marc_Sanchis_Llinares_rceyzb.png" },
